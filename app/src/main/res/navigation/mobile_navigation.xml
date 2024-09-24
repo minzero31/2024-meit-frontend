@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.a2024_meit_frontend.ui.management.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_management"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.a2024_meit_frontend.ui.mypage.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_mypage"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
