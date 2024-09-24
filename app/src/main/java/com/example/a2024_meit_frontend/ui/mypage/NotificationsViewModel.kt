@@ -1,4 +1,4 @@
-package com.example.a2024_meit_frontend.ui.notifications
+package com.example.a2024_meit_frontend.ui.mypage
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.example.a2024_meit_frontend.ui.dashboard
+package com.example.a2024_meit_frontend.ui.management
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
