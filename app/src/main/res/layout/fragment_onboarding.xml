@@ -16,7 +16,6 @@
         android:scaleType="centerInside"
         app:srcCompat="@drawable/ic_onbording_logo" />
 
-
     <TextView
         android:id="@+id/onboarding_textView"
         android:layout_width="wrap_content"
@@ -52,6 +51,5 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"/>
-
 
 </LinearLayout>

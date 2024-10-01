@@ -5,28 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.a2024_meit_frontend.MainActivity
 import com.example.a2024_meit_frontend.R
-import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class OnboardingFragment : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_onboarding, container, false)
-    }
+        val rootView = inflater.inflate(R.layout.fragment_onboarding, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        // 버튼 클릭 리스너 설정
+        val goLoginButton = rootView.findViewById<View>(R.id.go_login_button) // ID 변경
+        goLoginButton.setOnClickListener {
+            (activity as MainActivity).changeFragment(1) // LoginFragment로 변경
+        }
 
-        // ActionBar 숨기기
-        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
-
-        // BottomNavigationView 숨기기
-        val navView: BottomNavigationView = requireActivity().findViewById(R.id.nav_view)
-        navView.visibility = View.GONE
+        return rootView
     }
 }
-
