@@ -22,4 +22,25 @@
         android:name="com.example.a2024_meit_frontend.ui.mypage.MypageFragment"
         android:label="@string/title_mypage"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.a2024_meit_frontend.ui.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.a2024_meit_frontend.ui.onboarding.OnboardingFragment"
+        android:label="OnboardingFragment"
+        tools:layout="@layout/fragment_onboarding">
+
+        <action
+            android:id="@+id/action_onboardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+
+    </fragment>
+
+
 </navigation>
