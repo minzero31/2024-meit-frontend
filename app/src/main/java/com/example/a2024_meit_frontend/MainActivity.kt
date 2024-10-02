@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.a2024_meit_frontend.databinding.ActivityMainBinding
 import com.example.a2024_meit_frontend.ui.login.LoginFragment
 import com.example.a2024_meit_frontend.ui.onboarding.OnboardingFragment
+import com.example.a2024_meit_frontend.ui.signup.SignupFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -32,15 +33,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Fragment 전환 메서드 추가
+    // MainActivity.kt 파일에서 changeFragment 메서드를 아래와 같이 수정
     fun changeFragment(index: Int) {
-        when(index) {
+        when (index) {
             1 -> {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.nav_host_fragment_activity_main, LoginFragment()) // LoginFragment로 전환
                     .commit()
             }
-            // 2는 더 이상 필요하지 않음
+            2 -> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.nav_host_fragment_activity_main, SignupFragment()) // SignupFragment로 전환
+                    .commit()
+            }
         }
     }
+
 }
