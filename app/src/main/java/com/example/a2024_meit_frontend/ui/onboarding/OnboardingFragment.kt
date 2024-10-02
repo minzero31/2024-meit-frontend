@@ -22,9 +22,9 @@ class OnboardingFragment : Fragment() {
         goLoginButton.setOnClickListener {
             (activity as MainActivity).changeFragment(1) // LoginFragment로 변경
         }
-        // 로그인 버튼 클릭 리스너 설정
+        // 회원가입 버튼 클릭 리스너 설정
         val goSignupButton = rootView.findViewById<View>(R.id.go_signup_button) // ID 변경
-        goLoginButton.setOnClickListener {
+        goSignupButton.setOnClickListener {
             (activity as MainActivity).changeFragment(2) // SignupFragment로 변경
         }
 
