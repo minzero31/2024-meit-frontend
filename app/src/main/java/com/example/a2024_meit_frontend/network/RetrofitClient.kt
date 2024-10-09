@@ -1,6 +1,5 @@
 package com.example.a2024_meit_frontend.network
 
-
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

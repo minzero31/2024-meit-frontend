@@ -1,5 +1,6 @@
 package com.example.a2024_meit_frontend.ui.signup
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import com.example.a2024_meit_frontend.network.SignupResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.Calendar
 
 class SignupFragment : Fragment() {
 
@@ -24,6 +26,7 @@ class SignupFragment : Fragment() {
     private lateinit var emailInput: EditText
     private lateinit var passwordInput: EditText
     private lateinit var passwordConfirmInput: EditText
+    private lateinit var birthInput: EditText
     private lateinit var signupButton: Button
 
     override fun onCreateView(
@@ -39,7 +42,13 @@ class SignupFragment : Fragment() {
         emailInput = view.findViewById(R.id.input_email)
         passwordInput = view.findViewById(R.id.input_password)
         passwordConfirmInput = view.findViewById(R.id.input_password_confirm)
+        birthInput = view.findViewById(R.id.input_birth)
         signupButton = view.findViewById(R.id.signup_button)
+
+        // 생일 입력란 클릭 시 DatePickerDialog 표시
+        birthInput.setOnClickListener {
+            showDatePickerDialog()
+        }
 
         // 회원가입 버튼 클릭 리스너 설정
         signupButton.setOnClickListener {
@@ -48,11 +57,12 @@ class SignupFragment : Fragment() {
             val passwordConfirm = passwordConfirmInput.text.toString()
             val name = nameInput.text.toString()
             val email = emailInput.text.toString()
+            val birth = birthInput.text.toString()
 
             // 비밀번호 확인 일치 여부 및 모든 필드가 채워졌는지 확인
-            if (username.isNotEmpty() && password.isNotEmpty() && passwordConfirm.isNotEmpty() && name.isNotEmpty() && email.isNotEmpty()) {
+            if (username.isNotEmpty() && password.isNotEmpty() && passwordConfirm.isNotEmpty() && name.isNotEmpty() && email.isNotEmpty() && birth.isNotEmpty()) {
                 if (password == passwordConfirm) {
-                    sendSignupRequest(username, password, name, email)
+                    sendSignupRequest(username, password, name, email, birth)
                 } else {
                     Toast.makeText(requireContext(), "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
                 }
@@ -64,9 +74,23 @@ class SignupFragment : Fragment() {
         return view
     }
 
+    // DatePickerDialog 표시
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
+            birthInput.setText("$selectedYear-${selectedMonth + 1}-$selectedDay")
+        }, year, month, day)
+
+        datePickerDialog.show()
+    }
+
     // 회원가입 요청 보내는 함수
-    private fun sendSignupRequest(username: String, password: String, name: String, email: String) {
-        val request = SignupRequest(username, password, name, email, "")
+    private fun sendSignupRequest(username: String, password: String, name: String, email: String, birth: String) {
+        val request = SignupRequest(username, password, name, email, birth)
 
         RetrofitClient.instance.signup(request).enqueue(object : Callback<SignupResponse> {
             override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
