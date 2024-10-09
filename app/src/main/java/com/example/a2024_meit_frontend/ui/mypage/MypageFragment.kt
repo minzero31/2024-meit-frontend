@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.a2024_meit_frontend.databinding.FragmentNotificationsBinding
+import com.example.a2024_meit_frontend.databinding.FragmentMypageBinding
 
 class MypageFragment : Fragment() {
 
-    private var _binding: FragmentNotificationsBinding? = null
+    private var _binding: FragmentMypageBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,17 +20,12 @@ class MypageFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(MypageViewModel::class.java)
+        // Inflate the layout directly without ViewModel
+        _binding = FragmentMypageBinding.inflate(inflater, container, false)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        // XML에서 정의된 UI 요소가 자동으로 세팅됩니다.
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        return binding.root  // Return the root view of the binding
     }
 
     override fun onDestroyView() {

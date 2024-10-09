@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="sky_blue">#DDF3FF</color>
     <color name="navy">#5565F2</color>
+    <color name="color_selected">#3144EC</color>
+    <color name="color_unselected">#363639</color>
+    <color name="color_text_selected">#3144EC</color>
+    <color name="color_text_unselected">#363639</color>
 </resources>

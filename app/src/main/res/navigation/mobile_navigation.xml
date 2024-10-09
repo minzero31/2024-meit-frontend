@@ -15,19 +15,22 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.example.a2024_meit_frontend.ui.management.ManagementFragment"
         android:label="@string/title_management"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_management" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.a2024_meit_frontend.ui.mypage.MypageFragment"
         android:label="@string/title_mypage"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_mypage" />
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.a2024_meit_frontend.ui.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/navigation_home" />
 
     </fragment>
     <fragment

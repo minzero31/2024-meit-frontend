@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.a2024_meit_frontend.MainActivity
 import com.example.a2024_meit_frontend.R
 import com.example.a2024_meit_frontend.network.LoginRequest
 import com.example.a2024_meit_frontend.network.LoginResponse
@@ -62,6 +63,10 @@ class LoginFragment : Fragment() {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
                     Toast.makeText(requireContext(), loginResponse?.message, Toast.LENGTH_SHORT).show()
+
+                    // 로그인 성공 시 HomeFragment로 이동
+                    (activity as MainActivity).changeFragment(3) // 1은 HomeFragment의 인덱스
+
                 } else {
                     Toast.makeText(requireContext(), "로그인 실패: 잘못된 자격 증명", Toast.LENGTH_SHORT).show()
                 }
