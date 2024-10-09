@@ -52,13 +52,15 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // 기타 의존성들
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 
     // Retrofit 의존성 추가
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     // GSON 의존성 추가
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // 기타 의존성들
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+
 }
