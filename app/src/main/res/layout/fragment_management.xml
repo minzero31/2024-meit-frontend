@@ -33,15 +33,66 @@
             android:textColor="@color/black"
             android:textSize="28sp"
             android:layout_gravity="center_vertical" />
-
     </LinearLayout>
 
-    <!-- 아래에 배경 이미지 -->
-    <ImageView
-        android:id="@+id/background_image"
-        android:layout_width="380dp"
-        android:layout_gravity="center"
-        android:layout_height="500dp"
-        android:layout_weight="1"
-        android:src="@drawable/ic_main_background" />
+    <!-- 배경 이미지와 버튼을 겹치게 할 FrameLayout -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <!-- 배경 이미지 -->
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="380dp"
+            android:layout_gravity="center"
+            android:layout_height="700dp"
+            android:src="@drawable/ic_main_background"
+            android:scaleType="centerCrop" />
+
+        <!-- 버튼 3개를 세로로 나열 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <!-- 첫 번째 버튼 -->
+            <Button
+                android:id="@+id/button_smart_pillbox"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_management_button"
+                android:backgroundTint="@null"
+                android:text="나의 스마트 약통"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:layout_marginBottom="40dp" />
+
+            <!-- 두 번째 버튼 -->
+            <Button
+                android:id="@+id/button_check_medication"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_management_button"
+                android:backgroundTint="#FFFFFF"
+                android:text="복약 기록 확인하기"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:layout_marginBottom="40dp"/>
+
+            <!-- 세 번째 버튼 -->
+            <Button
+                android:id="@+id/button_add_medicine"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_management_button"
+                android:backgroundTint="@null"
+                android:text="약물 추가"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+        </LinearLayout>
+    </FrameLayout>
+
 </LinearLayout>
