@@ -1,15 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/add_medi_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <!-- 상단 LinearLayout (이전 버튼과 약물 추가하기 제목) -->
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="약물 추가하기"
-        android:textColor="@color/black"
-        android:textSize="30sp"/>
-</LinearLayout>
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/before_add_medi_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/ic_arrow_left"
+            android:drawablePadding="0dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/add_medi_title_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="약물 추가하기"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <!-- 입력 폼 LinearLayout -->
+    <LinearLayout
+        android:id="@+id/add_medi_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- 약물명 입력 -->
+        <TextView
+            android:id="@+id/medicine_name_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="약물명"
+            android:layout_marginBottom="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/input_medicine_name"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:hint="약물명을 입력해주세요."
+            android:textColor="@color/black"
+            android:background="@drawable/edittext_background"/>
+
+        <!-- 투입량 입력 -->
+        <TextView
+            android:id="@+id/dosage_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="투입량"
+            android:layout_marginBottom="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/input_dosage"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:hint="투입량을 입력해주세요."
+            android:textColor="@color/black"
+            android:background="@drawable/edittext_background"/>
+
+        <!-- 날짜 선택 -->
+        <TextView
+            android:id="@+id/date_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="날짜"
+            android:layout_marginBottom="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/input_date"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:focusable="false"
+            android:hint="날짜를 선택해주세요."
+            android:textColor="@color/black"
+            android:background="@drawable/edittext_background"/>
+
+        <!-- 시간 선택 -->
+        <TextView
+            android:id="@+id/time_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="시간"
+            android:layout_marginBottom="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/input_time"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:focusable="false"
+            android:hint="시간을 선택해주세요."
+            android:textColor="@color/black"
+            android:background="@drawable/edittext_background"/>
+
+        <!-- 약물 추가하기 버튼 -->
+        <Button
+            android:id="@+id/add_medicine_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="200dp"
+            android:text="약물 추가하기"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/sky_blue"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
