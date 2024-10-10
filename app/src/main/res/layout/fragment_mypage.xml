@@ -33,15 +33,136 @@
             android:textColor="@color/black"
             android:textSize="28sp"
             android:layout_gravity="center_vertical" />
-
     </LinearLayout>
 
-    <!-- 아래에 배경 이미지 -->
-    <ImageView
-        android:id="@+id/background_image"
-        android:layout_width="380dp"
-        android:layout_gravity="center"
-        android:layout_height="500dp"
-        android:layout_weight="1"
-        android:src="@drawable/ic_main_background" />
+    <!-- 나머지 요소들을 포함하는 LinearLayout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical">
+
+        <!-- 마이페이지 텍스트 -->
+        <TextView
+            android:id="@+id/my_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="마이페이지"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <!-- 사용자 정보 레이아웃 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="18dp"
+            android:gravity="start">
+
+            <!-- 사용자 아이콘 -->
+            <ImageView
+                android:id="@+id/user_icon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_mypage_user"
+                android:layout_marginEnd="8dp" />
+
+            <!-- 사용자 이름과 생일을 포함하는 수직 레이아웃 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="김눈송님"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/user_birthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2000년 1월 1일"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 구분선 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 버튼 레이아웃 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:gravity="center">
+
+            <!-- 내 정보 확인하기 버튼 -->
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/icon_userinfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_mypage_userinfo"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/check_info_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="내 정보 확인하기"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:gravity="start" />
+            </RelativeLayout>
+
+            <!-- 복약 데이터 분석 결과 확인하기 버튼 -->
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/icon_graphlogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_mypage_graphlogo"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/check_medication_data_button"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:text="복약 데이터 분석 결과 확인하기"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
