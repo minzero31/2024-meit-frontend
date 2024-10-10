@@ -70,4 +70,8 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
+    //cardview
+    implementation("androidx.cardview:cardview:1.0.0")
+
+
 }
